@@ -6,7 +6,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import static com.albo.cat.util.ConstantHolder.*;
+import static com.albo.cat.util.ConstantHolder.REDIRECT;
+import static com.albo.cat.util.ConstantHolder.START_VALUE_OF_CAT_HAPPINESS;
+import static com.albo.cat.util.ConstantHolder.START_VALUE_OF_CAT_SATIETY;
 
 @Controller
 public class WelcomePageController {

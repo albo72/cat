@@ -4,6 +4,7 @@ import com.albo.cat.data.base.CatAvatarsDataBase;
 import com.albo.cat.data.base.PossibleActionsDataBase;
 import com.albo.cat.entity.Cat;
 import com.albo.cat.util.CheckerCatParameters;
+import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
@@ -24,7 +25,7 @@ public class ActionProcessor {
 
 
     public ActionProcessor(PossibleActionsDataBase possibleActionsDataBase, CatAvatarsDataBase catAvatarsDataBase,
-                           @Qualifier("catPlay") CatAction actionPlay,@Qualifier("catSleep") CatAction actionSleep,
+                           @Qualifier("catPlay") CatAction actionPlay, @Qualifier("catSleep") CatAction actionSleep,
                            @Qualifier("catEat") CatAction actionEat, CheckerCatParameters checkerCatParameters) {
         this.possibleActionsDataBase = possibleActionsDataBase;
         this.catAvatarsDataBase = catAvatarsDataBase;
