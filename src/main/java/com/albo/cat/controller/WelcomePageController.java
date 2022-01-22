@@ -23,7 +23,7 @@ public class WelcomePageController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String welcome() {
-        if (cat.getName() == null) {
+        if (!cat.isCreated()) {
             return WELCOME_PAGE_NAME;
         } else {
             return REDIRECT + CAT_STATS_CONTROLLER_NAME;
@@ -35,6 +35,7 @@ public class WelcomePageController {
         cat.setName(name);
         cat.setHappiness(START_VALUE_OF_CAT_HAPPINESS);
         cat.setSatiety(START_VALUE_OF_CAT_SATIETY);
+        cat.setCreated(true);
         return REDIRECT + CAT_STATS_CONTROLLER_NAME;
     }
 }

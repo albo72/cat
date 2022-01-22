@@ -1,21 +1,19 @@
 package com.albo.cat.actions;
 
-import com.albo.cat.data.base.PossibleActionsDataBase;
 import com.albo.cat.entity.Cat;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
+import static com.albo.cat.util.ConstantHolder.PLAY_PARAMETER;
 import static com.albo.cat.util.ConstantHolder.SLEEP_PARAMETER;
 
-@Component
+@Component("play")
 public class CatPlay implements CatAction {
 
     @Override
-    public Map<String, String> doAction(Cat cat, String previousAction, PossibleActionsDataBase possibleActionsDataBase) {
-        if (previousAction != null && previousAction.equals(SLEEP_PARAMETER)) {
+    public List<Action> doAction(Cat cat) {
+        if (cat.getAction() != null && cat.getAction().equals(SLEEP_PARAMETER)) {
             cat.setHappiness(cat.getHappiness() - 5);
         } else {
             Random random = new Random();
@@ -27,6 +25,7 @@ public class CatPlay implements CatAction {
             }
             cat.setSatiety(cat.getSatiety() - 10);
         }
-        return possibleActionsDataBase.getActionsDataBase();
+        cat.setAction(PLAY_PARAMETER);
+        return new ArrayList<>(Arrays.asList(Action.values()));
     }
 }

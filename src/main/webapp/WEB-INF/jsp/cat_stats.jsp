@@ -28,7 +28,7 @@
                         <label for="cat">Выберите действие</label>
                         <select name="catAction" id="cat">
                             <c:forEach var="action" items="${actions}">
-                                <option value="${action.key}">${action.value}</option>
+                                <option value="${action.toString()}">${action.title}</option>
                             </c:forEach>
                         </select>
                         <button type="submit">Подтвердить</button>

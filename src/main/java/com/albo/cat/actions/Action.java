@@ -6,8 +6,15 @@ import lombok.Getter;
 @AllArgsConstructor
 @Getter
 public enum Action {
-    SLEEP("Уложить кота спать"),
-    PLAY("Поиграть с котом"),
-    FEED("Покормить кота");
-    private String title;
+    PLAY("Поиграть с котом","/images/play.jpg"),
+    SLEEP("Уложить кота спать","/images/sleep.jpg"),
+    FEED("Покормить кота","/images/eat.jpg");
+    private final String title;
+    private final String avatar;
+
+
+    @Override
+    public String toString() {
+        return super.toString().toLowerCase();
+    }
 }
