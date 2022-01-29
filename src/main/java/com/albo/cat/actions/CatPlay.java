@@ -5,15 +5,12 @@ import org.springframework.stereotype.Component;
 
 import java.util.*;
 
-import static com.albo.cat.util.ConstantHolder.PLAY_PARAMETER;
-import static com.albo.cat.util.ConstantHolder.SLEEP_PARAMETER;
-
-@Component("play")
+@Component("PLAY")
 public class CatPlay implements CatAction {
 
     @Override
     public List<Action> doAction(Cat cat) {
-        if (cat.getAction() != null && cat.getAction().equals(SLEEP_PARAMETER)) {
+        if (cat.getAction().equals(Action.SLEEP)) {
             cat.setHappiness(cat.getHappiness() - 5);
         } else {
             Random random = new Random();
@@ -25,7 +22,7 @@ public class CatPlay implements CatAction {
             }
             cat.setSatiety(cat.getSatiety() - 10);
         }
-        cat.setAction(PLAY_PARAMETER);
+        cat.setAction(Action.PLAY);
         return new ArrayList<>(Arrays.asList(Action.values()));
     }
 }

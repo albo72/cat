@@ -7,8 +7,9 @@
     <jsp:body>
         <div class="container h-100 text-center">
             <div class="row h-100 justify-content-center align-items-center">
-                <form class="row g-3" action="/" method="post">
-                    <div class="col-sm-12 fs-3">
+                <form class="row g-3" action="${pageContext.request.contextPath}/" method="post"
+                      enctype="multipart/form-data">
+                    <%--@declare id="file"--%><div class="col-sm-12 fs-3">
                         Вас приветсвует симулятор кота!<br>
                         Для начала введите имя кота
                     </div>
@@ -20,6 +21,14 @@
                         <input type="text" class="form-control" name="name" required placeholder="Введите имя кота">
                     </div>
                     <div class="col-sm-3"></div>
+                    <div class="col-sm-12 fs-4">
+                        Выберите аватар для кота
+                    </div>
+                        <div class="col-sm-3"></div>
+                        <div class="col-sm-6">
+                            <input type="file" name="file"><br>
+                        </div>
+                        <div class="col-sm-3"></div>
                     <div class="col-12">
                         <button type="submit" class="btn btn-primary">Создать</button>
                     </div>

@@ -8,20 +8,18 @@ import java.util.Arrays;
 import java.util.List;
 
 
-import static com.albo.cat.util.ConstantHolder.EAT_PARAMETER;
-
-@Component("feed")
+@Component("FEED")
 public class CatEat implements CatAction {
 
     @Override
     public List<Action> doAction(Cat cat) {
-        if (cat.getAction() != null && cat.getAction().equals(EAT_PARAMETER)) {
+        if (cat.getAction().equals(Action.FEED)) {
             cat.setHappiness(cat.getHappiness() - 30);
         } else {
             cat.setHappiness(cat.getHappiness() + 5);
             cat.setSatiety(cat.getSatiety() + 15);
         }
-        cat.setAction(EAT_PARAMETER);
+        cat.setAction(Action.FEED);
         return new ArrayList<>(Arrays.asList(Action.values()));
     }
 }
